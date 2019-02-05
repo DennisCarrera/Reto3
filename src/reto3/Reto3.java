@@ -16,11 +16,13 @@ import java.io.InputStreamReader;
 public class Reto3 {
 
     /**
-     * @param args the command line arguments
      */
     public static BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in)); 
     public static void main(String[] args) throws IOException {
         int puntaje;
+        int[] valores = new int [3];
+        int temp;
+        
         Constructor personaje1 = new Constructor();
         Mago personaje2 = new Mago();
         Guerrero personaje3 = new Guerrero();
@@ -33,6 +35,26 @@ public class Reto3 {
         System.out.println("Indique puntaje para Guerrero");
         puntaje = Integer.parseInt(entrada.readLine());
         personaje3.setPuntaje(puntaje);
+        
+        
+        valores[0] = personaje1.getpuntaje();
+        valores[1] = personaje2.getpuntaje();
+        valores[2] = personaje3.getpuntaje();
+        
+        for(int i = 0; i < valores.length - 1; i++)
+        {
+            for (int j = 0; j < valores.length -1; j++)
+            {
+                if (valores[j] > valores[j + 1])
+                {
+                    int tmp = valores[j+1];
+                    valores[j+1] = valores[j];
+                    valores[j] = tmp;
+                }
+            }
+        }
+        
+        for(int y = 0)
     }
     
 }
